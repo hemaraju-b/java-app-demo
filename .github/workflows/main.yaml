@@ -63,3 +63,15 @@ jobs:
         with:
           name: Package
           path: staging
+  build-docker-image:
+    name: Publish to Docker Hub
+    runs-on: ubuntu-latest
+    needs: build      
+    steps:
+      - uses: actions/checkout@v2
+      - name: login to DockerHUb #with my credentials and credentails need to setup as Github secret
+        run: docker login -u {{secrets.DOCKER_USERNAME}} -P ${{secrets.DOCKER_PASSWORD}}
+      - name: Build Docker image
+        run: docker build -t ${{secrets.DOCKER_REPO}}:latest
+      - name: Publish Docker image to repo
+        run : docker push ${{secrets.DOCKER_REPO}}  
