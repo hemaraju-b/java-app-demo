@@ -15,6 +15,17 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
+  run-windows-commands:
+    runs-on: self-hosted
+    #runs-on: [self-hosted, linux] we can use this labels as well 
+    steps:
+      - name: Getting current location
+        run : Get-Location
+      - name : running bash command
+        run : pwd
+      - name: running one more bash
+        run : Get-Service
   # This workflow contains a single job called "build"
   build:
 
