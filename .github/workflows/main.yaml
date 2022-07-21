@@ -15,7 +15,7 @@ jobs:
 
   run-windows-commands:
     runs-on: self-hosted
-    #runs-on: [self-hosted, linux] we can use this labels as well 
+    #runs-on: [self-hosted, linux] we can use this labels as well ###
     steps:
       - name: Getting current location
         run : Get-Location
